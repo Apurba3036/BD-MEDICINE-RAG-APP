@@ -1,0 +1,16 @@
+fastapi
+uvicorn
+pandas
+chromadb
+sentence-transformers
+groq
+python-dotenv
+python-multipart
+psycopg2-binary
+livekit-api
+livekit-agents
+livekit-plugins-google
+livekit-plugins-silero
+google-generativeai
+python-jose[cryptography]
+cloudinary

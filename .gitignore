@@ -1,0 +1,11 @@
+.env
+__pycache__/
+*.pyc
+*.sqlite3
+*.db
+backend/chroma_db/
+backend/.env
+frontend/.env
+node_modules/
+dist/
+.DS_Store

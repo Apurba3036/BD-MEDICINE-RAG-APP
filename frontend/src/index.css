@@ -1,0 +1,93 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap');
+
+@layer base {
+  body {
+    @apply antialiased text-slate-800 bg-slate-50;
+  }
+}
+
+/* Custom Scrollbar for a more premium look */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-slate-300 rounded-full;
+}
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-slate-400;
+}
+
+/* Audio Visualizer specific animations */
+.viz-bar {
+  width: 4px;
+  border-radius: 4px;
+  background-color: #e2e8f0;
+  transition: all 0.3s ease;
+}
+.viz-bar.idle { height: 4px; }
+.viz-bar.listening {
+  background-color: #8b5cf6;
+  animation: pulseHeight 1s ease-in-out infinite alternate;
+}
+.viz-bar.speaking {
+  background-color: #5b61f4;
+  animation: pulseHeight 0.5s ease-in-out infinite alternate;
+}
+
+@keyframes pulseHeight {
+  0% { height: 8px; }
+  100% { height: 32px; }
+}
+
+.agent-avatar-ring {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  margin-bottom: 12px;
+}
+.agent-avatar-ring::before,
+.agent-avatar-ring::after {
+  content: "";
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  transition: all 0.3s ease;
+}
+.ring-listening::before {
+  border-color: #8b5cf6;
+  animation: rotateClockwise 4s linear infinite;
+  border-top-color: transparent;
+  border-bottom-color: transparent;
+}
+.ring-speaking::before {
+  border-color: #5b61f4;
+  animation: pulseScale 1s ease-in-out infinite alternate;
+}
+.ring-speaking::after {
+  border-color: #8b5cf6;
+  animation: pulseScale 1.5s ease-in-out infinite alternate-reverse;
+  inset: -10px;
+  opacity: 0.5;
+}
+
+@keyframes rotateClockwise {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+@keyframes pulseScale {
+  from { transform: scale(1); opacity: 1; }
+  to { transform: scale(1.1); opacity: 0.8; }
+}
