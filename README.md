@@ -1,8 +1,7 @@
-
 # Problem
 
 The healthcare system in Bangladesh faces critical challenges that affect millions of patients daily.
-![alt text](screencapture-localhost-5174-2026-07-15-16_12_11.png)
+![alt text](frontend/screencapture-localhost-5174-2026-07-15-16_12_11.png)
 ## 🚨 Accessibility Barriers
 
 - **Language Gap**: Most medical information is in English, but 90% of patients speak Bengali
@@ -30,12 +29,7 @@ The healthcare system in Bangladesh faces critical challenges that affect millio
 - Medication errors from misunderstood prescriptions
 - Lost productivity from long hospital visits
 - Healthcare providers overwhelmed with administrative tasks
-`
-  },
-  {
-    id: "solution",
-    title: "2. Solution",
-    content: `
+
 # Solution
 
 BD Medicine AI is a comprehensive AI-powered healthcare platform designed specifically for Bangladesh, combining two integrated modules.
@@ -85,12 +79,7 @@ BD Medicine AI is a comprehensive AI-powered healthcare platform designed specif
 - **Shared Database**: Patient data flows between both modules
 - **Consistent AI Quality**: Same LLM backend ensures reliable responses
 - **Scalable Architecture**: Both modules built on same FastAPI foundation
-`
-  },
-  {
-    id: "why-now",
-    title: "3. Why Now",
-    content: `
+
 # Why Now
 
 ## 📈 Market Timing
@@ -138,12 +127,7 @@ BD Medicine AI is a comprehensive AI-powered healthcare platform designed specif
 - **Low CAC**: Chatbot serves as free funnel for paid hospital services
 - **High LTV**: Patients return for multiple health needs
 - **Scalable**: Cloud-native architecture supports rapid expansion
-`
-  },
-  {
-    id: "product-demo",
-    title: "4. Product Demo",
-    content: `
+
 # Product Demo
 
 ## 💊 Medicine Chatbot Demo Flow
@@ -202,12 +186,7 @@ BD Medicine AI is a comprehensive AI-powered healthcare platform designed specif
 - **Coverage**: 21,000+ medicines in database
 - **Languages**: Native Bengali + English support
 - **Uptime**: 99.9% with cloud infrastructure
-`
-  },
-  {
-    id: "market-opportunity",
-    title: "5. Market Opportunity",
-    content: `
+
 # Market Opportunity
 
 ## 🌍 Total Addressable Market (TAM)
@@ -294,12 +273,7 @@ BD Medicine AI is a comprehensive AI-powered healthcare platform designed specif
 - **Year 1**: 500 subscribers × $2 = $1,000/month
 - **Year 2**: 2,500 subscribers × $2 = $5,000/month
 - **Year 3**: 10,000 subscribers × $2 = $20,000/month
-`
-  },
-  {
-    id: "business-model",
-    title: "6. Business Model",
-    content: `
+
 # Business Model
 
 ## 💼 B2B2C Revenue Strategy
@@ -379,12 +353,7 @@ BD Medicine AI is a comprehensive AI-powered healthcare platform designed specif
 - **LTV**: $24/year (assuming 12-month retention)
 - **Payback Period**: 2.5 months
 - **Gross Margin**: 90% (minimal marginal cost)
-`
-  },
-  {
-    id: "traction",
-    title: "7. Traction",
-    content: `
+
 # Traction
 
 ## ✅ Current Status
@@ -422,14 +391,6 @@ BD Medicine AI is a comprehensive AI-powered healthcare platform designed specif
 - ✅ User feedback incorporated
 - ✅ Performance optimizations are ongoing
 
-
-
-`
-  },
-  {
-    id: "competition",
-    title: "8. Competition",
-    content: `
 # Competition
 
 ## 🥊 Competitive Landscape
@@ -495,12 +456,7 @@ BD Medicine AI is a comprehensive AI-powered healthcare platform designed specif
 - **Hospital Integration**: Deep integration hard to replicate
 - **User Habits**: Voice-first becomes preferred interface
 - **Data Portability**: Structured data hard to migrate
-`
-  },
-  {
-    id: "unique-advantage",
-    title: "9. Unique Advantage",
-    content: `
+
 # Unique Advantage
 
 ## 🚀 Technology Superiority
@@ -616,12 +572,7 @@ BD Medicine AI is a comprehensive AI-powered healthcare platform designed specif
 - Pharmacy partnerships for monetization
 - Revenue share aligns incentives
 - API-first for easy integration
-`
-  },
-  {
-    id: "go-to-market",
-    title: "10. Go-To-Market",
-    content: `
+
 # Go-To-Market Strategy
 
 ## 🎯 Phase 1: Pilot Program (Months 1-6)
@@ -703,12 +654,7 @@ BD Medicine AI is a comprehensive AI-powered healthcare platform designed specif
 | Operations | $30,000 (৳3,510,000) | 10% |
 | Legal & Compliance | $15,000 (৳1,755,000) | 5% |
 | **Total** | **$300,000 (৳35,100,000)** | **100%** |
-`
-  },
-  {
-    id: "team",
-    title: "11. Team",
-    content: `
+
 # Team
 
 ## 👥 Our Team
@@ -741,12 +687,7 @@ BD Medicine AI is a comprehensive AI-powered healthcare platform designed specif
 - **Integrity**: Honest, transparent, ethical
 - **Speed**: Move fast, learn faster
 - **Excellence**: Quality in everything we do
-`
-  },
-  {
-    id: "vision",
-    title: "12. Vision",
-    content: `
+
 # Vision
 
 ## 🌟 Mission Statement
@@ -858,12 +799,7 @@ Join our mission-driven team. Build technology that saves lives and improves hea
 BD Medicine AI is more than a product—it's a movement to democratize healthcare access through technology. By combining voice AI, local data, and human-centered design, we're building a future where every Bangladeshi can access quality healthcare information, regardless of literacy, location, or language.
 
 The journey has just begun. Join us in making healthcare accessible for all.
-`
-  },
-  {
-    id: "product-overview-detailed",
-    title: "13. Product Overview (Detailed)",
-    content: `
+
 # Product Overview (Detailed)
 
 ## 🏗️ System Architecture
@@ -1017,12 +953,7 @@ BD Medicine AI is a dual-module platform built on a modern microservices archite
 - **Data Storage**: Local hosting (Bangladesh)
 - **Privacy**: HIPAA-compliant practices
 - **Audit Logs**: All database operations logged
-`
-  },
-  {
-    id: "feature-matrix-detailed",
-    title: "14. Feature Matrix (Detailed)",
-    content: `
+
 # Feature Matrix (Detailed)
 
 ## 💊 Medicine Chatbot Features
@@ -1153,12 +1084,7 @@ BD Medicine AI is a dual-module platform built on a modern microservices archite
 - **🟡 Planned**: In development roadmap
 - **🔴 Not Started**: Not yet planned
 - **⚠️ Deprecated**: No longer supported
-`
-  },
-  {
-    id: "architecture-detailed",
-    title: "15. Architecture Diagram (Detailed)",
-    content: `
+
 # Architecture Diagram (Detailed)
 
 ## 🏗️ High-Level Architecture
@@ -1425,12 +1351,7 @@ erDiagram
 - HIPAA-compliant practices
 - Local data hosting (Bangladesh)
 - Audit logging (planned)
-`
-  },
-  {
-    id: "data-flow-detailed",
-    title: "16. Data Flow Diagram (Detailed)",
-    content: `
+
 # Data Flow Diagram (Detailed)
 
 ## 💊 Medicine Chatbot Data Flow
@@ -1613,12 +1534,7 @@ flowchart TD
     style A fill:#e1f5ff
     style I fill:#e1f5ff
 \`\`\`
-`
-  },
-  {
-    id: "tech-stack",
-    title: "17. Technology Stack",
-    content: `
+
 # Technology Stack
 
 ## 🎨 Frontend
@@ -1746,12 +1662,7 @@ flowchart TD
 - **WebRTC**: Real-time voice communication
 - **RAG**: Retrieval-Augmented Generation
 - **Hybrid Search**: SQL + vector search combination
-`
-  },
-  {
-    id: "api-docs",
-    title: "18. API Documentation",
-    content: `
+
 # API Documentation
 
 ## 🔌 Chatbot Endpoints
@@ -2142,12 +2053,7 @@ data: Final chunk
 - 403: Forbidden
 - 404: Not found
 - 500: Server error
-`
-  },
-  {
-    id: "data-ai-layer",
-    title: "19. Data & AI Layer",
-    content: `
+
 # Data & AI Layer
 
 ## 📊 Data Sources
@@ -2378,12 +2284,7 @@ data: Final chunk
 - Language limitations (Bengali focus)
 - Context understanding bounds
 - Emergency situations require immediate human intervention
-`
-  },
-  {
-    id: "roadmap",
-    title: "20. Product Roadmap",
-    content: `
+
 # Product Roadmap
 
 ## 🎯 Q3 2026 (Future Plan)
@@ -2642,12 +2543,7 @@ data: Final chunk
 | 2028 | 200 | 500,000 | $5M | Full Health Assistant |
 | 2029 | 500 | 2M | $20M | Regional Expansion |
 | 2030 | 1000 | 10M | $100M | Global Platform |
-`
-  },
-  {
-    id: "security",
-    title: "21. Security & Scalability",
-    content: `
+
 # Security & Scalability
 
 ## 🔒 Security Architecture
@@ -2921,12 +2817,7 @@ graph LR
 - **Voice Latency**: <300ms
 - **Search Speed**: <100ms
 - **Uptime**: 99.95%
-`
-  },
-  {
-    id: "changelog",
-    title: "22. Changelog",
-    content: `
+
 # Changelog
 
 ## [Unreleased]
@@ -3044,5 +2935,3 @@ We follow [Semantic Versioning](https://semver.org/):
 - **Current Major Version**: Full support
 - **Previous Major Version**: Security updates only
 - **Older Versions**: No support
-
-
