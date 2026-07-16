@@ -1,12 +1,8 @@
-export const HARDCODED_SECTIONS = [
-  {
-    id: "problem",
-    title: "1. Problem",
-    content: `
+
 # Problem
 
 The healthcare system in Bangladesh faces critical challenges that affect millions of patients daily.
-
+![alt text](screencapture-localhost-5174-2026-07-15-16_12_11.png)
 ## 🚨 Accessibility Barriers
 
 - **Language Gap**: Most medical information is in English, but 90% of patients speak Bengali
