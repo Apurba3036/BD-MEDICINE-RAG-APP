@@ -1087,6 +1087,8 @@ BD Medicine AI is a dual-module platform built on a modern microservices archite
 
 # Architecture Diagram (Detailed)
 
+> **Note:** The LangChain integration for the backend RAG pipeline is currently in the development phase.
+
 ## 🏗️ High-Level Architecture
 
 \`\`\`mermaid
@@ -1103,7 +1105,7 @@ graph TB
     
     subgraph "Medicine Chatbot Module"
         OCR[OCR Service<br/>Groq Vision]
-        RAG[RAG Pipeline<br/>ChromaDB + PostgreSQL]
+        RAG[RAG Pipeline<br/>LangChain + ChromaDB + PostgreSQL]
         LLM[LLM Service<br/>Groq Llama]
         Translate[Translation<br/>Llama 3.1]
         Transcribe[Transcription<br/>Groq Whisper]
@@ -1159,6 +1161,7 @@ sequenceDiagram
     participant User
     participant React
     participant FastAPI
+    participant LangChain
     participant Groq
     participant ChromaDB
     participant PostgreSQL
@@ -1174,8 +1177,11 @@ sequenceDiagram
     ChromaDB-->>FastAPI: Medicine details
     FastAPI->>PostgreSQL: Search for generics
     PostgreSQL-->>FastAPI: Generic details
-    FastAPI->>Groq: Generate analysis
-    Groq-->>FastAPI: Streamed response
+    FastAPI->>LangChain: Generate analysis via LCEL
+    LangChain->>Groq: Query LLM
+    Groq-->>LangChain: Stream response
+    LangChain-->>FastAPI: Stream response
+    
     FastAPI-->>React: Streamed analysis
     React-->>User: Display results
 \`\`\`
