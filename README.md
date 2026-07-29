@@ -1,263 +1,38 @@
-# Problem
+# BD Medicine AI
 
-The healthcare system in Bangladesh faces critical challenges that affect millions of patients daily.
-![alt text](frontend/screencapture-localhost-5174-2026-07-15-16_12_11.png)
-## 🚨 Accessibility Barriers
+BD Medicine AI is a Bengali-first medicine assistant focused on prescription understanding, local medicine search, and AI-guided healthcare support.
 
-- **Language Gap**: Most medical information is in English, but 90% of patients speak Bengali
-- **Prescription Literacy**: Handwritten prescriptions are difficult to read and understand
-- **Hospital Navigation**: Patients waste hours in queues trying to find the right department
-- **Medicine Information**: No centralized, localized database for medicine prices, availability, and alternatives
+## Core capabilities
 
-## 🏥 Systemic Issues
+- Prescription OCR and image-based medicine extraction
+- RAG-powered medicine information retrieval from a local medicine database
+- Bengali and English Q&A for medicine guidance
+- Voice transcription and translation for conversational queries
+- Pharmacy links and prescription history features
 
-- **Overburdened Staff**: Hospital receptionists handle hundreds of calls daily, leading to long wait times
-- **Information Asymmetry**: Patients lack access to reliable medical information in their native language
-- **Digital Divide**: Existing healthcare apps are either in English or lack voice-first interfaces
-- **Fragmented Data**: Medicine information scattered across multiple sources with no unified search
+## Project structure
 
-## 📊 Market Gap
+- Frontend: React + Vite SPA
+- Backend: FastAPI API with PostgreSQL, ChromaDB, and Groq integrations
+- Docs/admin content is served through the backend and frontend content layer
 
-- **No Voice-First Solution**: Existing telehealth apps require typing and navigation
-- **No Local Context**: Global AI tools (like ChatGPT) lack Bangladesh-specific medicine data
-- **No Integration**: Separate systems for medicine info and hospital appointments
-- **No Real-Time Support**: Static databases without AI-powered personalized assistance
+## Local run
 
-## 💔 Impact
+```bash
+cd backend
+pip install -r requirements.txt
+uvicorn main:app --reload
+```
 
-- Patients delay seeking care due to confusion
-- Medication errors from misunderstood prescriptions
-- Lost productivity from long hospital visits
-- Healthcare providers overwhelmed with administrative tasks
+```bash
+cd frontend
+npm install
+npm run dev
+```
 
-# Solution
+## Notes
 
-BD Medicine AI is a comprehensive AI-powered healthcare platform designed specifically for Bangladesh, combining two integrated modules.
-
-## 💊 Module 1: Medicine Chatbot (Text + Image + Voice)
-
-### Core Capabilities
-
-- **Prescription OCR**: Upload handwritten prescriptions for instant text extraction and analysis
-- **RAG-Powered Search**: Query 21,000+ local medicines with context-aware responses
-- **Multilingual Support**: Ask questions in Bengali or English, receive answers in both
-- **Voice Input**: Speak your questions using Whisper-powered transcription
-- **Medicine Details**: Get prices, side effects, dosage information, and manufacturer details
-- **Buy Links**: Direct integration with Arogga, MedEx, Shajgoj, and Daraz for instant purchasing
-
-### User Journey
-
-1. Patient uploads prescription image or speaks question
-2. System extracts medicine names using vision AI
-3. RAG system retrieves relevant medicine information from local database
-4. LLM provides personalized, contextual response in Bengali
-5. Patient gets buy links and can order medicines directly
-
-## 🎙️ Module 2: HealthEcho AI - Asha (Voice-First Receptionist)
-
-### Core Capabilities
-
-- **Bengali Voice Interface**: Natural conversation in fluent Bengali using Google Gemini Realtime
-- **Patient Registration**: VIN-based patient identification and record creation
-- **Symptom Analysis**: Intelligent department routing based on verbal symptom description
-- **Visit History**: Tracks patient visits across multiple hospital visits
-- **Real-Time Processing**: Sub-second response times via LiveKit WebRTC
-- **Department Mapping**: 10+ medical departments with Bengali descriptions
-
-### User Journey
-
-1. Patient clicks "Start Appointment" and speaks in Bengali
-2. Asha greets and asks if patient has visited before
-3. If returning: Patient provides VIN, Asha retrieves history
-4. If new: Asha collects name, age, phone, and symptoms
-5. Asha analyzes symptoms and recommends correct department
-6. Patient record saved with visit details
-
-## 🔗 Integration Benefits
-
-- **Unified Patient Experience**: Seamless transition between medicine info and appointment booking
-- **Shared Database**: Patient data flows between both modules
-- **Consistent AI Quality**: Same LLM backend ensures reliable responses
-- **Scalable Architecture**: Both modules built on same FastAPI foundation
-
-# Why Now
-
-## 📈 Market Timing
-
-### Digital Adoption Peak
-
-- **Smartphone Penetration**: 45%+ in Bangladesh, growing 15% YoY
-- **Internet Users**: 120M+ Bangladeshis online (2024)
-- **Digital Payment Ready**: bKash, Nagad, and mobile banking ubiquity
-- **4G/5G Coverage**: Nationwide coverage enabling real-time voice AI
-
-### Healthcare Digital Transformation
-
-- **Government Push**: Digital Health Vision 2030 promoting telemedicine
-- **Hospital Modernization**: Top hospitals adopting digital systems
-- **Patient Expectation**: Post-COVID acceptance of digital healthcare
-- **Investment Climate**: Growing VC interest in healthtech in South Asia
-
-### Technology Readiness
-
-- **AI Maturity**: LLMs now capable of reliable medical Q&A
-- **Voice AI**: Real-time voice processing with sub-200ms latency
-- **Cost Efficiency**: Groq and similar platforms make AI affordable
-- **Infrastructure**: Cloudinary, Neon, LiveKit provide enterprise-grade services
-
-## 🎯 Competitive Landscape Gap
-
-### Existing Solutions Fall Short
-
-- **Local Apps**: Limited to appointment booking, no AI intelligence
-- **Global AI**: ChatGPT lacks BD medicine database and Bengali voice
-- **Telemedicine**: Video calls only, no automated triage or voice-first
-- **Pharmacy Apps**: No prescription analysis or medical guidance
-
-### Our Unique Position
-
-- **First Mover**: No integrated voice-first AI health platform in BD
-- **Local Data Advantage**: Curated database of 21,000+ BD medicines
-- **Bengali Native**: Built from ground up for Bengali speakers
-- **Dual-Module**: Comprehensive solution covering info + appointments
-
-## 💰 Business Viability
-
-- **B2B2C Model**: Clear revenue from hospitals + user acquisition from chatbot
-- **Low CAC**: Chatbot serves as free funnel for paid hospital services
-- **High LTV**: Patients return for multiple health needs
-- **Scalable**: Cloud-native architecture supports rapid expansion
-
-# Product Demo
-
-## 💊 Medicine Chatbot Demo Flow
-
-### Scenario 1: Prescription Analysis
-
-**User Action**: Uploads a handwritten prescription image
-
-**System Response**:
-1. OCR extracts medicine names: "Napa 500mg", "Azithromycin 250mg"
-2. RAG searches local medicine database
-3. AI provides structured analysis:
-   - **Napa (Paracetamol)**: Generic for pain relief, Price: ৳2.5/tablet, Side effects: Rare
-   - **Azithromycin**: Antibiotic for infections, Price: ৳15/tablet, Side effects: Nausea
-4. Buy links appear for Arogga, MedEx, Shajgoj, Daraz
-5. User can click to purchase directly
-
-### Scenario 2: Voice Query
-
-**User Action**: Speaks "আমার মাথা ব্যথার জন্য কোন ওষুধ ভালো?" (What medicine is good for headache?)
-
-**System Response**:
-1. Whisper transcribes Bengali audio to text
-2. RAG searches headache medicines in database
-3. AI responds in Bengali: "মাথা ব্যথার জন্য [[Napa]] (Paracetamol) সাধারণত ব্যবহার করা হয়। দাম ৳2.5 টাকা। সাইড এফেক্ট খুব কম।"
-4. Medicine names highlighted with [[ ]] for easy identification
-
-## 🎙️ Asha Voice Agent Demo Flow
-
-### Scenario 1: New Patient Registration
-
-**User Action**: Clicks "Start Appointment", speaks in Bengali
-
-**Conversation**:
-- **Asha**: "আস্সালামুআলাইকুম! আমি আশা, এই হাসপাতালের AI রিসেপশনিস্ট। আপনি কি আগে এই হাসপাতালে এসেছেন?"
-- **User**: "না, আমি নতুন"
-- **Asha**: "আপনার নাম কী?" → Collects name, age, phone, symptoms
-- **User**: "আমার মাথা ব্যথা"
-- **Asha**: "আপনার সমস্যা শুনে মনে হচ্ছে নিউরোলজি বিভাগে যাওয়া উচিত। আপনার VIN নম্বর: VIN382910। এটি সংরক্ষণ করুন।"
-- **System**: Patient record created in PostgreSQL with VIN
-
-### Scenario 2: Returning Patient
-
-**User Action**: Provides VIN "VIN382910"
-
-**Conversation**:
-- **Asha**: "আপনার তথ্য পাওয়া গেছে। নাম: মোহাম্মদ রহিম, বয়স: 45। সর্বশেষ সমস্যা: বুকে ব্যথা। এখন নতুন সমস্যা কী?"
-- **User**: "আমার পেট ব্যথা"
-- **Asha**: "পেট ব্যথার জন্য গ্যাস্ট্রোএন্টেরোলজি বিভাগে যান। আপনার পরিদর্শন রেকর্ড করা হয়েছে।"
-- **System**: Visit history updated in database
-
-## 📊 Technical Demo Highlights
-
-- **Latency**: <500ms for voice responses
-- **Accuracy**: 95%+ OCR on handwritten prescriptions
-- **Coverage**: 21,000+ medicines in database
-- **Languages**: Native Bengali + English support
-- **Uptime**: 99.9% with cloud infrastructure
-
-# Market Opportunity
-
-## 🌍 Total Addressable Market (TAM)
-
-### Bangladesh Healthcare Market
-
-- **Population**: 170M+ (2024)
-- **Healthcare Spend**: $12B annually
-- **Digital Health Growth**: 20% CAGR (2023-2028)
-- **Smartphone Users**: 80M+ and growing
-
-### Hospital Sector
-
-- **Hospitals**: 5,000+ facilities nationwide
-- **Daily Outpatients**: 2M+ visits
-- **Private Hospitals**: 1,200+ with digital readiness
-- **Target Segment**: Top 200 urban hospitals (high digital adoption)
-
-### Pharmacy Market
-
-- **Pharmacies**: 100,000+ nationwide
-- **Online Pharmacy Growth**: 35% YoY
-- **Medicine Sales**: $3B annually
-- **Digital Orders**: 15% and rapidly increasing
-
-## 🎯 Serviceable Addressable Market (SAM)
-
-### Initial Target: Urban Hospitals
-
-- **Top 50 Hospitals**: Dhaka, Chittagong, Sylhet
-- **Combined Outpatient Volume**: 500K+ daily
-- **Digital Readiness**: 80% have internet/tech infrastructure
-- **Willingness to Pay**: High for efficiency gains
-
-### Secondary Target: Pharmacy Integration
-
-- **Top 10 Online Pharmacies**: Arogga, MedEx, etc.
-- **Combined Daily Orders**: 50K+
-- **API Integration Ready**: Most have developer APIs
-- **Revenue Share Potential**: Commission on referred orders
-
-## 📈 Serviceable Obtainable Market (SOM)
-
-### Year 1 Targets
-
-- **Hospital Partnerships**: 10 hospitals
-- **Daily Active Users**: 5,000+
-- **Prescription Analyses**: 10,000+/month
-- **Voice Appointments**: 2,000+/month
-
-### Year 2 Targets
-
-- **Hospital Partnerships**: 50 hospitals
-- **Daily Active Users**: 25,000+
-- **Prescription Analyses**: 50,000+/month
-- **Voice Appointments**: 10,000+/month
-
-### Year 3 Targets
-
-- **Hospital Partnerships**: 200 hospitals
-- **Daily Active Users**: 100,000+
-- **Prescription Analyses**: 200,000+/month
-- **Voice Appointments**: 50,000+/month
-
-## 💰 Revenue Potential
-
-### Hospital SaaS Model
-
-- **Per Hospital**: $500-$2,000/month based on size
-- **Year 1**: 10 hospitals × $1,000 avg = $120,000 ARR
-- **Year 2**: 50 hospitals × $1,000 avg = $600,000 ARR
+The old HealthEcho AI / LiveKit receptionist module has been removed from the current codebase.
 - **Year 3**: 200 hospitals × $1,000 avg = $2.4M ARR
 
 ### Pharmacy Commission
@@ -661,7 +436,7 @@ BD Medicine AI is a comprehensive AI-powered healthcare platform designed specif
 
 ### Nazmus Sakib Apurba 🇧🇩
 
-**Role**: Team Leader / Presentation & Communication Lead
+**Role**: Team Manager
 
 **Background**: 
 - 1+ year in software development and project management
@@ -1167,22 +942,33 @@ sequenceDiagram
     participant PostgreSQL
     participant Cloudinary
     
-    User->>React: Upload prescription
-    React->>FastAPI: POST /ocr-prescription
-    FastAPI->>Cloudinary: Upload image
-    Cloudinary-->>FastAPI: Image URL
-    FastAPI->>Groq: Extract medicine names
-    Groq-->>FastAPI: Medicine list
-    FastAPI->>ChromaDB: Search for each medicine
-    ChromaDB-->>FastAPI: Medicine details
-    FastAPI->>PostgreSQL: Search for generics
-    PostgreSQL-->>FastAPI: Generic details
-    FastAPI->>LangChain: Generate analysis via LCEL
+    alt Voice Input
+        User->>React: Speak query
+        React->>FastAPI: POST /voice-query (Audio)
+        FastAPI->>Groq: Whisper Transcription
+        Groq-->>FastAPI: Transcribed Text
+    else Text Input
+        User->>React: Type query
+        React->>FastAPI: POST /chat (Text)
+    else Image Input
+        User->>React: Upload prescription
+        React->>FastAPI: POST /ocr-prescription
+        FastAPI->>Cloudinary: Upload image
+        Cloudinary-->>FastAPI: Image URL
+        FastAPI->>Groq: Extract medicine names
+        Groq-->>FastAPI: Medicine list
+    end
+    
+    FastAPI->>ChromaDB: Search context for query/medicines
+    ChromaDB-->>FastAPI: Context details
+    FastAPI->>PostgreSQL: Search database
+    PostgreSQL-->>FastAPI: Structured details
+    FastAPI->>LangChain: Generate response via LCEL
     LangChain->>Groq: Query LLM
     Groq-->>LangChain: Stream response
     LangChain-->>FastAPI: Stream response
     
-    FastAPI-->>React: Streamed analysis
+    FastAPI-->>React: Streamed response
     React-->>User: Display results
 \`\`\`
 
@@ -2941,3 +2727,33 @@ We follow [Semantic Versioning](https://semver.org/):
 - **Current Major Version**: Full support
 - **Previous Major Version**: Security updates only
 - **Older Versions**: No support
+
+---
+
+## Recent Features
+
+### 🏠 Shelter Info (District Map)
+
+The **District Map** module (`frontend/src/DistrictMap.jsx`) now includes detailed **shelter information** for Bangladesh:
+
+- Interactive shelter markers on the map, color-coded by type:
+  - 🔴 **Cyclone Shelters** — `#ef4444`
+  - 🔵 **Flood Shelters** — `#0ea5e9`
+  - 🟠 **Disaster / Mujib Killa** — `#f97316`
+- Filter shelters by type (Cyclone, Flood, Disaster, All)
+- Full-text search across shelter name, district, upazila, contact person, and constructor
+- Paginated shelter data table with live map marker sync
+- Shelter popup on marker click with contact and capacity details
+- Data sourced from `frontend/public/data/shelter.json`
+
+---
+
+## Team
+
+| Name | Role |
+|------|------|
+| **Shahidul Alam** | Backend |
+| **Nazmus Sakib Apurba** | ML-AI / Backend |
+| **Rifah Noshin Siddiqua** | Frontend |
+
+> Built with ❤️ by the BD Medicine AI team.

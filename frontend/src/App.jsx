@@ -2,6 +2,7 @@ import Chat from './Chat'
 import Login from './Login'
 import DocsPage from './DocsPage'
 import { useAuth } from './AuthContext'
+import { ThemeProvider } from './ThemeContext'
 import './App.css'
 
 function App() {
@@ -23,10 +24,12 @@ function App() {
   }
 
   return (
-    <div className="app-container">
-      <Chat />
-    </div>
-  )
+    <ThemeProvider>
+      <div className="app-container">
+        <Chat />
+      </div>
+    </ThemeProvider>
+  );
 }
 
-export default App
+export default App;

@@ -1,0 +1,25 @@
+90: - **Scalable Architecture**: Both modules built on same FastAPI foundation
+143: - **Scalable**: Cloud-native architecture supports rapid expansion
+417: - ✅ Core architecture designed and implemented
+872: ## 🏗️ System Architecture
+874: BD Medicine AI is a dual-module platform built on a modern microservices architecture.
+1162:     id: "architecture-detailed",
+1163:     title: "15. Architecture Diagram (Detailed)",
+1165: # Architecture Diagram (Detailed)
+1167: ## 🏗️ High-Level Architecture
+1232: ## 💊 Medicine Chatbot Architecture
+1260: ## 🎙️ HealthEcho Voice Agent Architecture
+1359: ### Frontend Architecture
+1376: ### Backend Architecture
+1409: ## 🔒 Security Architecture
+1744: ## 🏗️ Architecture Patterns
+1746: - **Microservices**: Modular service architecture
+2215: **Architecture**: Retrieval-Augmented Generation for context-aware responses
+2248: **Architecture**: Vision-based text extraction from prescriptions
+2279: **Architecture**: Real-time voice interaction using Gemini Realtime
+2312: **Architecture**: Bengali-English translation
+2656: ## 🔒 Security Architecture
+2730: ## 🚀 Scalability Architecture
+2781: **Planned Architecture**:
+2997:   - Architecture diagrams
+3019: - Initial architecture

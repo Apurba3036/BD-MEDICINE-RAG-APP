@@ -4,9 +4,18 @@ import os
 import base64
 from dotenv import load_dotenv
 
+from langchain_groq import ChatGroq
+from langchain_core.prompts import ChatPromptTemplate
+from langchain_core.output_parsers import StrOutputParser
+
 load_dotenv()
 
+# Raw Groq client for Vision
 client = Groq(api_key=os.getenv("GROQ_API_KEY"))
+
+# LangChain LLMs
+chat_llm = ChatGroq(model="llama-3.3-70b-versatile", api_key=os.getenv("GROQ_API_KEY"))
+analysis_llm = ChatGroq(model="llama-3.1-8b-instant", api_key=os.getenv("GROQ_API_KEY"))
 
 SYSTEM_PROMPT = """
 You are BD-Medicine AI, an expert assistant specializing in Bangladeshi medicines.
@@ -41,6 +50,17 @@ Rules:
 - Be comprehensive but concise
 """
 
+# Define LangChain LCEL chains
+ask_chain = ChatPromptTemplate.from_messages([
+    ("system", SYSTEM_PROMPT),
+    ("user", "Context:\n{context}\n\nQuestion:\n{question}")
+]) | chat_llm | StrOutputParser()
+
+analyze_chain = ChatPromptTemplate.from_messages([
+    ("system", PRESCRIPTION_ANALYSIS_PROMPT),
+    ("user", "Context from Bangladesh medicine database:\n\n{context}")
+]) | analysis_llm | StrOutputParser()
+
 
 def ask_llm(question):
     context_docs = search(question)
@@ -51,27 +71,8 @@ def ask_llm(question):
 
     context = "\n\n".join(context_docs)
 
-    response = client.chat.completions.create(
-        model="llama-3.3-70b-versatile",
-        messages=[
-            {"role": "system", "content": SYSTEM_PROMPT},
-            {
-                "role": "user",
-                "content": f"""
-Context:
-{context}
-
-Question:
-{question}
-"""
-            }
-        ],
-        stream=True
-    )
-
-    for chunk in response:
-        if chunk.choices[0].delta.content is not None:
-            yield chunk.choices[0].delta.content
+    for chunk in ask_chain.stream({"context": context, "question": question}):
+        yield chunk
 
 
 def extract_medicines_from_image(image_base64: str, mime_type: str) -> str:
@@ -138,24 +139,7 @@ def analyze_prescription(image_base64: str, mime_type: str):
     context = raw_context[:3000] + ("..." if len(raw_context) > 3000 else "")
 
     # Step 3: Stream full analysis
-    # Use llama-3.1-8b-instant: 250K TPM limit vs 12K for 70b on free tier
     yield "📋 **Prescription Analysis:**\n\n"
 
-    response = client.chat.completions.create(
-        model="llama-3.1-8b-instant",
-        messages=[
-            {
-                "role": "system",
-                "content": PRESCRIPTION_ANALYSIS_PROMPT.format(medicines=medicines_text)
-            },
-            {
-                "role": "user",
-                "content": f"Context from Bangladesh medicine database:\n\n{context}"
-            }
-        ],
-        stream=True
-    )
-
-    for chunk in response:
-        if chunk.choices[0].delta.content is not None:
-            yield chunk.choices[0].delta.content
+    for chunk in analyze_chain.stream({"medicines": medicines_text, "context": context}):
+        yield chunk

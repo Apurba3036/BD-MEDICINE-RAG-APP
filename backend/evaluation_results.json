@@ -1,0 +1,22 @@
+{
+  "retrieval": {
+    "Recall@1 (%)": 60.67,
+    "Recall@3 (%)": 82.0,
+    "Precision@1 (%)": 60.67,
+    "MRR": 0.7039,
+    "nDCG@5": 0.9523,
+    "Total Queries": 150
+  },
+  "rag": {
+    "Exact Match (%)": 28.33,
+    "ROUGE-L": 0.2792,
+    "Total QA Pairs": 60,
+    "Errors": 0
+  },
+  "ocr": {
+    "Word Accuracy (%)": 88.26,
+    "CER (%)": 2.18,
+    "WER (%)": 11.43,
+    "Samples": 200
+  }
+}

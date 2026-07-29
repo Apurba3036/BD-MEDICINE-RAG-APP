@@ -10,7 +10,6 @@ from database import (
     update_docs_section, get_docs_team, add_docs_team_member, remove_docs_team_member
 )
 from vector_db import add_documents
-from appointment_db import create_patients_table
 
 from contextlib import asynccontextmanager
 from fastapi.responses import StreamingResponse
@@ -20,16 +19,11 @@ import time
 import io
 import cloudinary
 import cloudinary.uploader
-from livekit import api as livekit_api
-from livekit.api import LiveKitAPI, CreateAgentDispatchRequest
 from dotenv import load_dotenv
 from groq import Groq
 
 load_dotenv()
 
-LIVEKIT_API_KEY = os.getenv("LIVEKIT_API_KEY", "")
-LIVEKIT_API_SECRET = os.getenv("LIVEKIT_API_SECRET", "")
-LIVEKIT_URL = os.getenv("LIVEKIT_URL", "")
 GROQ_API_KEY = os.getenv("GROQ_API_KEY", "")
 
 # ── Cloudinary Config ──────────────────────────────────────────────────────────
@@ -53,10 +47,6 @@ async def lifespan(app: FastAPI):
     print(f"Loaded {len(docs)} documents. Adding to vector DB...")
     add_documents(docs)
     print("Vector DB ready!")
-    try:
-        create_patients_table()
-    except Exception as e:
-        print(f"Warning: Could not create patients table: {e}")
     try:
         create_prescriptions_table()
     except Exception as e:
@@ -247,60 +237,6 @@ async def chat_session(session_id: str, user_email: str = QueryParam(...)):
     messages = get_session_messages(session_id, user_email)
     return {"messages": messages}
 
-
-# ── LiveKit Token + Agent Dispatch ─────────────────────────────────────────────
-
-class TokenRequest(BaseModel):
-    room_name: str = "appointment-room"
-    participant_name: str = "patient"
-
-@app.post("/livekit-token")
-async def get_livekit_token(req: TokenRequest):
-    """Generate a LiveKit access token and dispatch the Asha agent to the room."""
-    if not LIVEKIT_API_KEY or not LIVEKIT_API_SECRET:
-        return {"error": "LiveKit credentials not configured"}
-
-    # Unique room and participant per call to avoid collisions
-    unique_room = f"{req.room_name}-{int(time.time())}"
-    unique_participant = f"{req.participant_name}-{int(time.time())}"
-
-    # Generate access token
-    token = (
-        livekit_api.AccessToken(LIVEKIT_API_KEY, LIVEKIT_API_SECRET)
-        .with_identity(unique_participant)
-        .with_name(unique_participant)
-        .with_grants(livekit_api.VideoGrants(
-            room_join=True,
-            room=unique_room,
-            can_publish=True,
-            can_subscribe=True,
-        ))
-    )
-    jwt = token.to_jwt()
-
-    # Dispatch Asha agent to the room
-    try:
-        lkapi = LiveKitAPI(LIVEKIT_URL, LIVEKIT_API_KEY, LIVEKIT_API_SECRET)
-        await lkapi.agent_dispatch.create_dispatch(
-            CreateAgentDispatchRequest(
-                agent_name="asha-receptionist",
-                room=unique_room,
-            )
-        )
-        await lkapi.aclose()
-        print(f"Asha agent dispatched to room: {unique_room}")
-    except Exception as e:
-        print(f"Warning: Could not dispatch agent: {e}")
-
-    return {
-        "token": jwt,
-        "url": LIVEKIT_URL,
-        "room": unique_room,
-    }
-
-@app.get("/livekit-token")
-async def livekit_health():
-    return {"status": "ok", "livekit_url": LIVEKIT_URL}
 
 # ── DOCS / PITCH DECK SYSTEM ──────────────────────────────────────────────────
 from datetime import datetime

@@ -5,15 +5,15 @@ import { auth, signOut } from "./firebase";
 import {
   Pill, Send, Sparkles, Activity, Search, ShieldPlus,
   Copy, Check, ImagePlus, X, ExternalLink, ShoppingCart, FileImage, Languages, LogOut,
-  CalendarPlus, Mic, MicOff, History, FileText, LayoutDashboard, Loader2
+  Mic, MicOff, History, FileText, LayoutDashboard, Loader2, MapPin
 } from "lucide-react";
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import HealthTipsView from './HealthTipsView';
 import UsefulLinksView from './UsefulLinksView';
-import AppointmentView from './AppointmentView';
 import ChatHistoryView from './ChatHistoryView';
 import PrescriptionsView from './PrescriptionsView';
+import DistrictMap from './DistrictMap';
 
 // ── Helpers ────────────────────────────────────────────────────────────────────
 
@@ -390,14 +390,11 @@ export default function Chat() {
             <ImagePlus size={18} />
             <span>Upload Prescription</span>
           </button>
+          <NavItem id="district-map" icon={MapPin} label="District Map (GIS)" />
           <NavItem id="history" icon={History} label="Chat History" />
           <NavItem id="prescriptions" icon={FileText} label="Prescriptions" />
           <NavItem id="health-tips" icon={ShieldPlus} label="Health Tips" />
           <NavItem id="useful-links" icon={ExternalLink} label="Useful Links" />
-          
-          <div className="mt-2 pt-2 border-t border-slate-100">
-            <NavItem id="appointment" icon={CalendarPlus} label="HealthEcho AI" customClass={activeView === 'appointment' ? 'bg-amber-50 text-amber-700 hover:bg-amber-100' : 'text-amber-700 hover:bg-amber-50'} />
-          </div>
 
           {user?.email === "meow@gmail.com" && (
             <div className="mt-2 pt-2 border-t border-slate-100">
@@ -439,8 +436,8 @@ export default function Chat() {
 
       {/* Main Area */}
       <main className="flex-1 flex flex-col h-full bg-slate-50/50 relative">
-        {activeView === "appointment" ? (
-          <AppointmentView />
+        {activeView === "district-map" ? (
+          <DistrictMap />
         ) : activeView === "health-tips" ? (
           <HealthTipsView />
         ) : activeView === "useful-links" ? (

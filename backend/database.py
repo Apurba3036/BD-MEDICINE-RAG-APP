@@ -120,10 +120,9 @@ def init_docs_tables():
                 ("solution", "2. Solution", "A highly contextual AI chatbot and prescription OCR system trained on BD medical datasets, delivering accurate, localized answers.", 2),
                 ("market", "3. Market Opportunity", "Over 160M population in BD with increasing digital adoption. The digital health market is growing at a 20% CAGR.", 3),
                 ("product", "4. Product Overview", "Users upload prescriptions, get text transcripts via Whisper Voice input, and chat about medicine dosages, prices, and side effects.", 4),
-                ("voice_agent", "5. AI Voice Receptionist (Asha)", "### Asha: Bengali AI Voice Agent\nPowered by **LiveKit** and **Google Gemini Realtime**, Asha acts as a virtual hospital receptionist. \n- Auto-detects returning patients via VIN.\n- Collects symptoms verbally in fluent Bengali.\n- Routes patients to the correct hospital department automatically.\n\nCode resides in `backend/livekit_agent.py`.", 5),
-                ("architecture", "6. Architecture Diagram", "```mermaid\ngraph TD;\n    UI[Frontend: React/Vite] --> API[Backend: FastAPI];\n    API --> DB[(PostgreSQL + Neon)];\n    API --> Cloudinary[Image Storage];\n    API --> LLM[Groq LLM + Whisper];\n    API --> Vector[(ChromaDB Rag)];\n    API --> LiveKit[LiveKit Voice Agent];\n```", 6),
-                ("api_docs", "7. API Documentation", "### Exposed Endpoints\n- `POST /chat` - Standard RAG chat\n- `POST /ocr-prescription` - Image to text\n- `POST /transcribe` - Audio to text", 7),
-                ("roadmap", "8. Roadmap", "- **Q3**: Launch mobile app wrap\n- **Q4**: Integrate direct pharmacy ordering", 8),
+                ("architecture", "5. Architecture Diagram", "```mermaid\ngraph TD;\n    UI[Frontend: React/Vite] --> API[Backend: FastAPI];\n    API --> DB[(PostgreSQL + Neon)];\n    API --> Cloudinary[Image Storage];\n    API --> LLM[Groq LLM + Whisper];\n    API --> Vector[(ChromaDB Rag)];\n```", 5),
+                ("api_docs", "6. API Documentation", "### Exposed Endpoints\n- `POST /chat` - Standard RAG chat\n- `POST /ocr-prescription` - Image to text\n- `POST /transcribe` - Audio to text", 6),
+                ("roadmap", "7. Roadmap", "- **Q3**: Launch mobile app wrap\n- **Q4**: Integrate direct pharmacy ordering", 7),
             ]
             cursor.executemany('''
                 INSERT INTO docs_sections (section_id, title, content, order_index)

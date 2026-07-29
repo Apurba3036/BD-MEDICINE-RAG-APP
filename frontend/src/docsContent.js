@@ -62,33 +62,6 @@ BD Medicine AI is a comprehensive AI-powered healthcare platform designed specif
 3. RAG system retrieves relevant medicine information from local database
 4. LLM provides personalized, contextual response in Bengali
 5. Patient gets buy links and can order medicines directly
-
-## 🎙️ Module 2: HealthEcho AI - Asha (Voice-First Receptionist)
-
-### Core Capabilities
-
-- **Bengali Voice Interface**: Natural conversation in fluent Bengali using Google Gemini Realtime
-- **Patient Registration**: VIN-based patient identification and record creation
-- **Symptom Analysis**: Intelligent department routing based on verbal symptom description
-- **Visit History**: Tracks patient visits across multiple hospital visits
-- **Real-Time Processing**: Sub-second response times via LiveKit WebRTC
-- **Department Mapping**: 10+ medical departments with Bengali descriptions
-
-### User Journey
-
-1. Patient clicks "Start Appointment" and speaks in Bengali
-2. Asha greets and asks if patient has visited before
-3. If returning: Patient provides VIN, Asha retrieves history
-4. If new: Asha collects name, age, phone, and symptoms
-5. Asha analyzes symptoms and recommends correct department
-6. Patient record saved with visit details
-
-## 🔗 Integration Benefits
-
-- **Unified Patient Experience**: Seamless transition between medicine info and appointment booking
-- **Shared Database**: Patient data flows between both modules
-- **Consistent AI Quality**: Same LLM backend ensures reliable responses
-- **Scalable Architecture**: Both modules built on same FastAPI foundation
 `
   },
   {
@@ -118,7 +91,7 @@ BD Medicine AI is a comprehensive AI-powered healthcare platform designed specif
 - **AI Maturity**: LLMs now capable of reliable medical Q&A
 - **Voice AI**: Real-time voice processing with sub-200ms latency
 - **Cost Efficiency**: Groq and similar platforms make AI affordable
-- **Infrastructure**: Cloudinary, Neon, LiveKit provide enterprise-grade services
+- **Infrastructure**: Cloudinary, Neon provide enterprise-grade services
 
 ## 🎯 Competitive Landscape Gap
 
@@ -174,30 +147,6 @@ BD Medicine AI is a comprehensive AI-powered healthcare platform designed specif
 2. RAG searches headache medicines in database
 3. AI responds in Bengali: "মাথা ব্যথার জন্য [[Napa]] (Paracetamol) সাধারণত ব্যবহার করা হয়। দাম ৳2.5 টাকা। সাইড এফেক্ট খুব কম।"
 4. Medicine names highlighted with [[ ]] for easy identification
-
-## 🎙️ Asha Voice Agent Demo Flow
-
-### Scenario 1: New Patient Registration
-
-**User Action**: Clicks "Start Appointment", speaks in Bengali
-
-**Conversation**:
-- **Asha**: "আস্সালামুআলাইকুম! আমি আশা, এই হাসপাতালের AI রিসেপশনিস্ট। আপনি কি আগে এই হাসপাতালে এসেছেন?"
-- **User**: "না, আমি নতুন"
-- **Asha**: "আপনার নাম কী?" → Collects name, age, phone, symptoms
-- **User**: "আমার মাথা ব্যথা"
-- **Asha**: "আপনার সমস্যা শুনে মনে হচ্ছে নিউরোলজি বিভাগে যাওয়া উচিত। আপনার VIN নম্বর: VIN382910। এটি সংরক্ষণ করুন।"
-- **System**: Patient record created in PostgreSQL with VIN
-
-### Scenario 2: Returning Patient
-
-**User Action**: Provides VIN "VIN382910"
-
-**Conversation**:
-- **Asha**: "আপনার তথ্য পাওয়া গেছে। নাম: মোহাম্মদ রহিম, বয়স: 45। সর্বশেষ সমস্যা: বুকে ব্যথা। এখন নতুন সমস্যা কী?"
-- **User**: "আমার পেট ব্যথা"
-- **Asha**: "পেট ব্যথার জন্য গ্যাস্ট্রোএন্টেরোলজি বিভাগে যান। আপনার পরিদর্শন রেকর্ড করা হয়েছে।"
-- **System**: Visit history updated in database
 
 ## 📊 Technical Demo Highlights
 
@@ -316,13 +265,11 @@ BD Medicine AI is a comprehensive AI-powered healthcare platform designed specif
 
 | Tier | Price | Features | Target |
 |------|-------|----------|--------|
-| **Starter** | $500/month | Basic Asha, standard DB, email support | Small clinics (<100 daily patients) |
-| **Professional** | $1,000/month | Advanced Asha, custom mapping, phone support, analytics | Medium hospitals (100-500 daily patients) |
+| **Starter** | $500/month | Basic AI, standard DB, email support | Small clinics (<100 daily patients) |
+| **Professional** | $1,000/month | Advanced AI, custom mapping, phone support, analytics | Medium hospitals (100-500 daily patients) |
 | **Enterprise** | $2,000+/month | Custom AI training, dedicated manager, API access, SLA | Large hospitals (500+ daily patients) |
 
 **Value Proposition**:
-- Reduce receptionist costs by 70%
-- Decrease patient wait times by 50%
 - Improve patient satisfaction scores
 - 24/7 availability without overtime costs
 
@@ -395,10 +342,9 @@ BD Medicine AI is a comprehensive AI-powered healthcare platform designed specif
 
 ### Product Development
 
-- **MVP Complete**: Both modules fully functional
+- **MVP Complete**: Core modules fully functional
 - **Live Deployment**: Running on production infrastructure
 - **Database**: 21,000+ medicines indexed in ChromaDB
-- **Voice Agent**: Asha operational with LiveKit integration
 - **User Testing**: Beta testing with 5+ users
 
 ### Technical Achievements
@@ -418,7 +364,6 @@ BD Medicine AI is a comprehensive AI-powered healthcare platform designed specif
 - ✅ Core architecture designed and implemented
 - ✅ Medicine database scraped and indexed
 - ✅ OCR pipeline operational
-- ✅ Voice agent integrated with LiveKit
 - ✅ Beta testing launched
 
 ### Q2 2026
@@ -481,7 +426,6 @@ BD Medicine AI is a comprehensive AI-powered healthcare platform designed specif
 
 ### Technology Moat
 
-- **Voice Integration**: Deep LiveKit + Gemini integration
 - **RAG Pipeline**: Optimized for medical queries
 - **OCR Pipeline**: Specialized for handwritten prescriptions
 - **Bengali NLP**: Custom-trained for medical Bengali
@@ -495,7 +439,6 @@ BD Medicine AI is a comprehensive AI-powered healthcare platform designed specif
 
 ### Switching Costs
 
-- **Patient Records**: VIN-based history creates lock-in
 - **Hospital Integration**: Deep integration hard to replicate
 - **User Habits**: Voice-first becomes preferred interface
 - **Data Portability**: Structured data hard to migrate
@@ -509,21 +452,7 @@ BD Medicine AI is a comprehensive AI-powered healthcare platform designed specif
 
 ## 🚀 Technology Superiority
 
-### 1. Deep LiveKit + Gemini Integration
-
-**What We Have**:
-- Real-time WebRTC audio streaming
-- Google Gemini Multimodal Live API
-- Sub-500ms end-to-end latency
-- Natural Bengali conversation flow
-
-**Why It Matters**:
-- Competitors use text-based chat (slow, unnatural)
-- We use voice (fast, intuitive)
-- Latency is critical for voice UX
-- Gemini's multimodal capabilities enable rich interactions
-
-### 2. Specialized RAG Pipeline
+### 1. Specialized RAG Pipeline
 
 **What We Have**:
 - Hybrid search (SQL + vector)
@@ -561,42 +490,16 @@ BD Medicine AI is a comprehensive AI-powered healthcare platform designed specif
 - Dosage forms and strengths
 - Side effects and indications
 
-### 2. Department Mapping System
-
-- 10+ medical departments mapped
-- Bengali symptom keywords
-- Automatic routing logic
-- Continuous refinement
-
-### 3. Patient Record System
-
-- VIN-based patient identification
-- Visit history tracking
-- JSONB storage for flexibility
-- Privacy-first design
-
 ## 🎨 User Experience Advantage
 
-### 1. Voice-First Design
-
-- Natural conversation interface
-- Bengali language support
-- No typing required
-- Hands-free operation
-
-### 2. Integrated Workflow
+### 1. Integrated Workflow
 
 - Medicine info → Buy → Appointment
 - Single platform for multiple needs
 - Seamless data flow
 - Consistent UI/UX
 
-### 3. Accessibility Focus
 
-- Bengali-first interface
-- Simple language (no medical jargon)
-- Audio output for illiterate users
-- High contrast design
 
 ## 💰 Business Model Advantage
 
@@ -640,16 +543,13 @@ BD Medicine AI is a comprehensive AI-powered healthcare platform designed specif
 
 **Pilot Offer**:
 - 3-month free trial
-- Full Asha voice agent deployment
 - Medicine chatbot integration
 - Dedicated support
 - Performance metrics dashboard
 
 **Success Metrics**:
 - 70%+ patient adoption
-- 50% reduction in receptionist workload
 - 80%+ patient satisfaction
-- 90%+ correct department routing
 
 ## 📈 Phase 2: Expansion (Months 7-18)
 
@@ -897,26 +797,6 @@ BD Medicine AI is a dual-module platform built on a modern microservices archite
 - **Vector Database** (vector_db.py): ChromaDB for semantic search
 - **Embeddings** (embeddings.py): SentenceTransformers for text embeddings
 
-### Module 2: HealthEcho Voice Agent (Asha)
-
-#### Frontend Components
-
-- **Appointment View** (AppointmentView.jsx): LiveKit room interface
-- **Audio Visualizer**: Real-time audio waveform display
-- **Status Indicators**: Connection state, speaking/listening status
-- **Patient Card**: VIN-based patient information display
-- **Transcript Panel**: Real-time conversation transcript
-- **Control Buttons**: Mute, disconnect, call controls
-
-#### Backend Components
-
-- **LiveKit Agent** (livekit_agent.py): Python voice agent framework
-- **Google Gemini Realtime**: Multimodal AI for speech processing
-- **Patient Database** (appointment_db.py): PostgreSQL patient records
-- **Department Mapping**: Symptom-to-department routing logic
-- **Function Calling Tools**: Database operations via AI
-- **VIN System**: Unique patient identification
-
 ## 👥 User Personas
 
 ### Primary Persona: Rahim (45, Urban Patient)
@@ -931,14 +811,11 @@ BD Medicine AI is a dual-module platform built on a modern microservices archite
 **Needs**:
 - Understand prescription from doctor
 - Know medicine prices and side effects
-- Book hospital appointment without waiting
 - Get information in Bengali
 
 **How BD Medicine AI Helps**:
 - Uploads prescription for instant analysis
 - Gets medicine info in Bengali
-- Uses voice to book appointment
-- Routed to correct department automatically
 
 ### Secondary Persona: Fatema (35, Rural Patient)
 
@@ -952,13 +829,10 @@ BD Medicine AI is a dual-module platform built on a modern microservices archite
 **Needs**:
 - Healthcare information for family
 - Medicine guidance for children
-- Appointment booking assistance
-- Voice-based interaction (can't type well)
+- Medicine information in simple language
 
 **How BD Medicine AI Helps**:
-- Voice-first interface (no typing)
 - Bengali language support
-- Remote appointment booking
 - Medicine information in simple language
 
 ## 📋 Use Cases
@@ -977,29 +851,11 @@ BD Medicine AI is a dual-module platform built on a modern microservices archite
 
 **Value**: Saves time, prevents errors, enables informed purchasing
 
-### Use Case 2: Voice Appointment Booking
-
-**Scenario**: Patient needs to book hospital appointment
-
-**Steps**:
-1. Patient clicks "Start Appointment"
-2. Asha greets in Bengali
-3. Patient speaks symptoms or problem
-4. Asha asks if patient has visited before
-5. If yes: Patient provides VIN, history retrieved
-6. If no: Asha collects patient information
-7. Asha analyzes symptoms and recommends department
-8. Patient record saved with visit details
-9. Patient receives VIN for future visits
-
-**Value**: No waiting, correct routing, personalized experience
-
 ## 📊 Technical Specifications
 
 ### Performance Metrics
 
 - **OCR Accuracy**: 95% on handwritten prescriptions
-- **Voice Latency**: <500ms end-to-end
 - **Search Speed**: <200ms for medicine queries
 - **API Response**: <100ms average
 - **Uptime**: 99.9%
@@ -1011,7 +867,6 @@ BD Medicine AI is a dual-module platform built on a modern microservices archite
 - **Vector Search**: ChromaDB with horizontal scaling
 - **API**: FastAPI with async support
 - **Media**: Cloudinary CDN for global delivery
-- **Voice**: LiveKit with auto-scaling rooms
 
 ### Security
 
@@ -1058,32 +913,7 @@ BD Medicine AI is a dual-module platform built on a modern microservices archite
 | **Medication Reminders** | 🟡 Planned | Push notifications for doses | P1 | Q1 2027 |
 | **Family Accounts** | 🟡 Planned | Manage family member prescriptions | P1 | Q2 2027 |
 
-## 🎙️ HealthEcho Voice Agent Features
-
-### Core Features
-
-| Feature | Status | Description | Priority |
-|---------|--------|-------------|----------|
-| **Bengali Voice Interface** | 🟢 Live | Natural conversation in fluent Bengali | P0 |
-| **Patient Registration** | 🟢 Live | Collect name, age, phone, symptoms | P0 |
-| **VIN System** | 🟢 Live | Unique patient identification | P0 |
-| **Patient Lookup** | 🟢 Live | Retrieve returning patient history | P0 |
-| **Symptom Analysis** | 🟢 Live | Analyze symptoms for department routing | P0 |
-| **Department Routing** | 🟢 Live | Recommend correct medical department | P0 |
-| **Visit History** | 🟢 Live | Track patient visits over time | P1 |
-| **Real-time Transcription** | 🟢 Live | Display conversation transcript | P1 |
-
-### Advanced Features (Planned)
-
-| Feature | Status | Description | Priority | Timeline |
-|---------|--------|-------------|----------|----------|
-| **Appointment Scheduling** | 🟡 Planned | Book specific time slots | P0 | Q3 2026 |
-| **Doctor Selection** | 🟡 Planned | Choose specific doctors | P1 | Q4 2026 |
-| **Symptom Triage** | 🟡 Planned | Urgency assessment | P0 | Q4 2026 |
-| **Multi-language Support** | 🟡 Planned | Support regional languages | P1 | Q1 2027 |
-| **Emergency Detection** | 🟡 Planned | Detect emergency keywords | P0 | Q2 2027 |
-
-## 🏥 Platform Features
+##  Platform Features
 
 ### User Features
 
@@ -1111,8 +941,6 @@ BD Medicine AI is a dual-module platform built on a modern microservices archite
 | Feature | Status | Description | Priority | Timeline |
 |---------|--------|-------------|----------|----------|
 | **Custom Department Mapping** | 🟢 Live | Map departments per hospital | P0 | Live |
-| **Patient Data Sync** | 🟡 Planned | Sync patient records | P0 | Q3 2026 |
-| **Appointment Sync** | 🟡 Planned | Sync with hospital systems | P0 | Q4 2026 |
 
 ### Pharmacy Integrations
 
@@ -1131,8 +959,6 @@ BD Medicine AI is a dual-module platform built on a modern microservices archite
 | **RAG Pipeline** | 🟢 Live | Retrieval-augmented generation | P0 |
 | **Hybrid Search** | 🟢 Live | SQL + vector search | P0 |
 | **OCR Pipeline** | 🟢 Live | Prescription text extraction | P0 |
-| **Voice Recognition** | 🟢 Live | Bengali speech-to-text | P0 |
-| **Voice Synthesis** | 🟢 Live | Bengali text-to-speech | P0 |
 | **Translation** | 🟢 Live | Bengali-English translation | P0 |
 
 ## 🔒 Security Features
@@ -1189,13 +1015,6 @@ graph TB
         Transcribe[Transcription<br/>Groq Whisper]
     end
     
-    subgraph "HealthEcho Voice Module"
-        LiveKit[LiveKit Server]
-        Agent[Asha Python Agent]
-        Gemini[Google Gemini<br/>Realtime API]
-        PatientDB[Patient Database<br/>PostgreSQL]
-    end
-    
     subgraph "Data Layer"
         PG[(PostgreSQL<br/>Neon)]
         Chroma[(ChromaDB<br/>Vector Search)]
@@ -1217,16 +1036,10 @@ graph TB
     Gateway --> Translate
     Gateway --> Transcribe
     
-    Web -.->|WebRTC| LiveKit
-    LiveKit --> Agent
-    Agent --> Gemini
-    Agent --> PatientDB
-    
     OCR --> Cloudinary
     RAG --> Chroma
     RAG --> PG
     LLM --> Pharmacies
-    PatientDB --> PG
     
     Gateway --> PG
     Gateway --> Firebase
@@ -1245,57 +1058,34 @@ sequenceDiagram
     participant PostgreSQL
     participant Cloudinary
     
-    User->>React: Upload prescription
-    React->>FastAPI: POST /ocr-prescription
-    FastAPI->>Cloudinary: Upload image
-    Cloudinary-->>FastAPI: Image URL
-    FastAPI->>Groq: Extract medicine names
-    Groq-->>FastAPI: Medicine list
-    FastAPI->>ChromaDB: Search for each medicine
-    ChromaDB-->>FastAPI: Medicine details
-    FastAPI->>PostgreSQL: Search for generics
-    PostgreSQL-->>FastAPI: Generic details
-    FastAPI->>LangChain: Generate analysis via LCEL
+    alt Voice Input
+        User->>React: Speak query
+        React->>FastAPI: POST /voice-query (Audio)
+        FastAPI->>Groq: Whisper Transcription
+        Groq-->>FastAPI: Transcribed Text
+    else Text Input
+        User->>React: Type query
+        React->>FastAPI: POST /chat (Text)
+    else Image Input
+        User->>React: Upload prescription
+        React->>FastAPI: POST /ocr-prescription
+        FastAPI->>Cloudinary: Upload image
+        Cloudinary-->>FastAPI: Image URL
+        FastAPI->>Groq: Extract medicine names
+        Groq-->>FastAPI: Medicine list
+    end
+    
+    FastAPI->>ChromaDB: Search context for query/medicines
+    ChromaDB-->>FastAPI: Context details
+    FastAPI->>PostgreSQL: Search database
+    PostgreSQL-->>FastAPI: Structured details
+    FastAPI->>LangChain: Generate response via LCEL
     LangChain->>Groq: Query LLM
     Groq-->>LangChain: Stream response
     LangChain-->>FastAPI: Stream response
     
-    FastAPI-->>React: Streamed analysis
+    FastAPI-->>React: Streamed response
     React-->>User: Display results
-\`\`\`
-
-## 🎙️ HealthEcho Voice Agent Architecture
-
-\`\`\`mermaid
-sequenceDiagram
-    participant User
-    participant React
-    participant FastAPI
-    participant LiveKit
-    participant Agent
-    participant Gemini
-    participant PostgreSQL
-    
-    User->>React: Click "Start Appointment"
-    React->>FastAPI: GET /livekit-token
-    FastAPI->>LiveKit: Create room
-    FastAPI->>LiveKit: Dispatch agent
-    LiveKit-->>FastAPI: Token
-    FastAPI-->>React: Token + Room URL
-    React->>LiveKit: Connect to room
-    LiveKit->>Agent: Initialize session
-    Agent->>Gemini: Start realtime session
-    
-    User->>LiveKit: Speak in Bengali
-    LiveKit->>Agent: Stream audio
-    Agent->>Gemini: Forward audio
-    Gemini-->>Agent: Text + Audio response
-    Agent->>PostgreSQL: lookup_patient(vin)
-    PostgreSQL-->>Agent: Patient data
-    Agent->>PostgreSQL: create_patient/update
-    PostgreSQL-->>Agent: Confirmation
-    Agent->>LiveKit: Stream response
-    LiveKit-->>User: Play audio
 \`\`\`
 
 ## 🗄️ Database Schema
@@ -1309,7 +1099,6 @@ erDiagram
     
     patients {
         int id PK
-        string vin UK
         string name
         int age
         string phone
@@ -1370,12 +1159,10 @@ erDiagram
 - Lucide React for icons
 - React Markdown for content rendering
 - Firebase SDK for authentication
-- LiveKit Client SDK for voice
 
 **Key Components**:
 - **App.jsx**: Main application router
 - **Chat.jsx**: Medicine chatbot interface
-- **AppointmentView.jsx**: Voice appointment interface
 - **DocsPage.jsx**: Documentation page
 - **DocsAdminPanel.jsx**: Admin panel for docs
 - **AuthContext.jsx**: Authentication state management
@@ -1388,7 +1175,6 @@ erDiagram
 - ChromaDB for vector search
 - SentenceTransformers for embeddings
 - Groq SDK for LLM services
-- LiveKit Agents Framework
 
 **API Endpoints**:
 
@@ -1401,10 +1187,6 @@ erDiagram
 - \`GET /chat-history\`: Retrieve user sessions
 - \`GET /chat-session/{id}\`: Get session messages
 - \`GET /prescriptions\`: Get user prescriptions
-
-**Voice Agent Endpoints**:
-- \`POST /livekit-token\`: Generate LiveKit token
-- \`GET /livekit-token\`: Health check
 
 **Docs Endpoints**:
 - \`GET /api/docs/config\`: Get docs configuration
@@ -1491,53 +1273,6 @@ flowchart TD
     
     style A fill:#e1f5ff
     style P fill:#e1f5ff
-\`\`\`
-
-## 🎙️ HealthEcho Voice Agent Data Flow
-
-### Appointment Booking Flow
-
-\`\`\`mermaid
-flowchart TD
-    A[User Clicks Start] --> B[React Frontend]
-    B --> C[Request LiveKit Token]
-    C --> D[FastAPI Backend]
-    D --> E[Generate JWT Token]
-    E --> F[Create LiveKit Room]
-    F --> G[Dispatch Asha Agent]
-    G --> H[Return Token + Room URL]
-    H --> I[React Connects to Room]
-    I --> J[WebRTC Connection]
-    J --> K[LiveKit Server]
-    K --> L[Asha Agent Initialized]
-    L --> M[Gemini Realtime Session]
-    
-    M --> N[User Speaks in Bengali]
-    N --> O[Audio Streamed]
-    O --> P[Gemini STT + NLP]
-    P --> Q[Intent Extracted]
-    Q --> R{Returning Patient?}
-    
-    R -->|Yes| S[Request VIN]
-    R -->|No| T[Collect Patient Info]
-    
-    S --> U[lookup_patient Function]
-    T --> V[create_patient Function]
-    
-    U --> W[PostgreSQL Query]
-    V --> W
-    W --> X[Patient Data Retrieved/Created]
-    X --> Y[get_department Function]
-    Y --> Z[Department Recommended]
-    Z --> AA[update_patient_visit Function]
-    AA --> AB[Visit History Updated]
-    AB --> AC[Gemini TTS Response]
-    AC --> AD[Audio Streamed Back]
-    AD --> AE[User Hears Response]
-    
-    style A fill:#e1f5ff
-    style AE fill:#e1f5ff
-    style W fill:#ffe1e1
 \`\`\`
 
 ## 🗄️ Data Storage Flow
@@ -1643,7 +1378,6 @@ flowchart TD
 
 ### Key Libraries
 
-- **livekit-client**: WebRTC voice communication
 - **react-markdown**: Markdown content rendering
 - **remark-gfm**: GitHub Flavored Markdown support
 - **rehype-raw**: HTML in markdown
@@ -1666,7 +1400,6 @@ flowchart TD
 ### AI/ML Stack
 
 - **Groq SDK**: LLM API access (Llama 3, Llama 4)
-- **Google Gemini Realtime**: Multimodal AI for voice
 - **SentenceTransformers**: Text embeddings (all-MiniLM-L6-v2)
 - **ChromaDB**: Vector database for semantic search
 
@@ -1680,7 +1413,6 @@ flowchart TD
 
 - **Cloudinary**: Image storage and CDN
 - **Groq Whisper**: Speech-to-text transcription
-- **LiveKit**: Real-time voice infrastructure
 
 ## 🔐 Security & Auth
 
@@ -1708,7 +1440,6 @@ flowchart TD
 - **Cloud Server**: FastAPI deployment
 - **Neon PostgreSQL**: Managed PostgreSQL
 - **Cloudinary**: Production media storage
-- **LiveKit Cloud**: Production voice infrastructure
 - **Firebase Production**: Production auth
 
 ## 📱 Mobile (Planned)
@@ -1736,8 +1467,6 @@ flowchart TD
 ### External APIs
 
 - **Groq API**: LLM and transcription services
-- **Google Gemini API**: Realtime multimodal AI
-- **LiveKit API**: Voice infrastructure
 - **Cloudinary API**: Media storage
 - **Firebase API**: Authentication
 
@@ -1936,48 +1665,6 @@ Get all saved prescriptions for a user.
       "uploaded_at": "2024-01-01T00:00:00"
     }
   ]
-}
-\`\`\`
-
-## 🎙️ Voice Agent Endpoints
-
-### POST /livekit-token
-
-Generate LiveKit access token and dispatch agent.
-
-**Request Body**:
-\`\`\`json
-{
-  "room_name": "appointment-room",
-  "participant_name": "patient"
-}
-\`\`\`
-
-**Response**:
-\`\`\`json
-{
-  "token": "jwt_token",
-  "url": "wss://livekit-server",
-  "room": "unique-room-name"
-}
-\`\`\`
-
-**Features**:
-- Unique room per session
-- Agent auto-dispatch
-- JWT-based authentication
-
----
-
-### GET /livekit-token
-
-Health check for LiveKit service.
-
-**Response**:
-\`\`\`json
-{
-  "status": "ok",
-  "livekit_url": "wss://livekit-server"
 }
 \`\`\`
 
@@ -2190,17 +1877,15 @@ data: Final chunk
 
 ### Patient Data
 
-**Overview**: Patient records for voice agent appointments
+**Overview**: Patient records for healthcare workflows
 
 **Data Points**:
-- VIN (unique identifier)
 - Name, age, phone, email
 - Medical problems and symptoms
 - Department assignments
 - Visit history (JSONB)
 
 **Privacy**:
-- VIN-based identification (no PII in identifier)
 - Encrypted storage
 - Access logging
 - Data retention policies
@@ -2415,17 +2100,17 @@ data: Final chunk
   - Generic vs brand comparison
   - Availability checking
 
-### HealthEcho Voice Agent
+### Platform
 
-- 🎯 **Appointment Scheduling**
-  - Book specific time slots
-  - Calendar integration
-  - Reminder system
+- 🎯 **Mobile App Beta**
+  - React Native development
+  - iOS and Android support
+  - Beta testing with 100 users
 
-- 🎯 **Doctor Selection**
-  - Choose specific doctors
-  - Doctor profiles
-  - Availability checking
+- 🎯 **Hospital Dashboard**
+  - Real-time appointment view
+  - Patient analytics
+  - Staff management
 
 ### Platform
 
@@ -2465,17 +2150,17 @@ data: Final chunk
   - Community reporting
   - Safety alerts
 
-### HealthEcho Voice Agent 
+### Platform
 
-- 🎯 **Symptom Triage**
-  - Urgency assessment
-  - Emergency detection
-  - Priority routing
+- 🎯 **Mobile App Launch**
+  - Public launch on app stores
+  - Marketing campaign
+  - 10,000 downloads target
 
-- 🎯 **Multi-language Support**
-  - Regional languages (Chittagong, Sylhet)
-  - Dialect support
-  - Language detection
+- 🎯 **Web Portal**
+  - Desktop interface
+  - Advanced features
+  - Admin dashboard
 
 ### Platform
 
@@ -2510,17 +2195,17 @@ data: Final chunk
   - Shared prescriptions
   - Caregiver access
 
-### HealthEcho Voice Agent
+### Platform
 
-- 🎯 **Voice Biometrics**
-  - Voice-based authentication
-  - Patient verification
-  - Security enhancement
+- 🎯 **Lab Integration**
+  - Test booking
+  - Result interpretation
+  - History tracking
 
-- 🎯 **Emergency Detection**
-  - Keyword detection
-  - Auto-escalation
-  - Emergency contacts
+- 🎯 **Insurance Integration**
+  - Coverage verification
+  - Claims processing
+  - Pre-authorization
 
 ### Platform
 
@@ -2548,17 +2233,12 @@ data: Final chunk
   - Condition-specific
   - Preventive care
 
-### HealthEcho Voice Agent
+### Platform
 
-- 🎯 **Follow-up Reminders**
-  - Automated reminders
-  - Appointment scheduling
-  - Care coordination
-
-- 🎯 **Family Account Support**
-  - Book for family
-  - Caregiver mode
-  - Family history
+- 🎯 **Doctor Consultations**
+  - Video/voice calls
+  - In-app consultations
+  - Payment integration
 
 ### Platform
 
@@ -2708,7 +2388,6 @@ def is_admin(email: str):
 
 **Data Minimization**:
 - Collect only necessary data
-- VIN-based identification (no PII)
 - Anonymous analytics
 
 **Data Retention**:
@@ -2752,11 +2431,6 @@ def is_admin(email: str):
 - Horizontal scaling
 - Distributed indexing
 - Load balancing
-
-**LiveKit**:
-- Auto-scaling rooms
-- Global edge servers
-- Load distribution
 
 ### Vertical Scaling
 
@@ -2948,7 +2622,7 @@ graph LR
 
 ### Changed
 - Improved RAG search accuracy
-- Optimized voice latency
+- Optimized response latency
 
 ### Fixed
 - Fixed translation edge cases
@@ -2966,13 +2640,12 @@ graph LR
   - Chat history
   - Prescription gallery
 
-- **HealthEcho Voice Agent Module**
-  - Bengali voice interface
-  - Patient registration with VIN
-  - Symptom analysis
-  - Department routing
-  - Visit history tracking
-  - Real-time transcription
+- **Medicine Chatbot Module**
+  - Bengali voice input support
+  - Prescription OCR with Groq Vision
+  - RAG-powered medicine search
+  - Chat history
+  - Prescription gallery
 
 - **Platform Features**
   - Firebase authentication
@@ -2993,7 +2666,6 @@ graph LR
   - MedEx pharmacy integration
   - Shajgoj pharmacy integration
   - Daraz pharmacy integration
-  - LiveKit voice infrastructure
   - Cloudinary image storage
 
 - **Documentation**
@@ -3018,7 +2690,6 @@ graph LR
 
 ### Added
 - Initial medicine chatbot
-- Basic voice agent
 - Database integration
 - OCR pipeline
 
