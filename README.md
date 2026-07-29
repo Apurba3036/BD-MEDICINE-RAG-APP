@@ -3,7 +3,9 @@
 **BD Medicine AI** is an AI-powered emergency healthcare assistant designed to improve access to reliable pharmaceutical information during disasters. It combines a hybrid RAG-powered medicine database with an interactive emergency shelter directory to support patients, caregivers, volunteers, and frontline responders when timely information matters most.
 
 ---
+
 ![alt text](frontend/screencapture-localhost-5174-2026-07-15-16_12_11.png)
+![alt text](screencapture-localhost-5173-2026-07-30-03_59_54.png)
 ## Problem Statement
 
 During earthquakes, floods, cyclones, and other disasters, access to reliable healthcare information becomes difficult as medical services are disrupted and healthcare professionals are overwhelmed. Patients may only have a handwritten prescription or the name of a medicine but lack information about its dosage, generic alternatives, side effects, or precautions.
@@ -57,6 +59,8 @@ Together, these features help patients, caregivers, volunteers, and emergency re
 
 ---
 
+
+
 ## Project Structure
 
 ```
@@ -96,7 +100,7 @@ BD Medicine AI/
 | Map | MapLibre GL v6 with Bangladesh district GeoJSON |
 
 ---
-
+![alt text](image.png)
 ## Local Setup
 
 ### Backend
