@@ -4,7 +4,9 @@
 
 ---
 
-![alt text](frontend/screencapture-localhost-5174-2026-07-15-16_12_11.png)
+![alt text](screencapture-localhost-5174-2026-07-15-16_12_11.png)
+
+
 ![alt text](screencapture-localhost-5173-2026-07-30-03_59_54.png)
 ## Problem Statement
 
