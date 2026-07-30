@@ -78,7 +78,7 @@ def ask_llm(question):
 def extract_medicines_from_image(image_base64: str, mime_type: str) -> str:
     """Use Groq vision model to extract medicine names from a prescription image."""
     response = client.chat.completions.create(
-        model="meta-llama/llama-4-scout-17b-16e-instruct",
+        model="qwen/qwen3.6-27b",
         messages=[
             {
                 "role": "user",
